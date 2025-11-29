@@ -7,56 +7,68 @@ menu_prompt = (
     "Your choice: "
 )
 
+movies = []   # Empty movie list
 
-movies = [] # Empty moive List
-
-# Function to add movies into list
+# Function to add movies
 def add_movie():
-    title = input("Please Enter the movie title:")
-    Director = input("Please Enter the Director Name:")
-    Year = input("Please Enter the Year:")
-    movies.append({
-        'title': title,
-        'Director': Director,
-        'Year': Year
-    })
+    title = input("Enter the movie title: ")
+    director = input("Enter the director name: ")
+    year = input("Enter the release year: ")
 
-#Function to show movie information 
-def show_movie():
+    movies.append({
+        'title': title.strip(),
+        'director': director.strip(),
+        'year': year.strip()
+    })
+    print("\nMovie added successfully!\n")
+
+# Function to display all movies
+def show_movies():
+    if not movies:
+        print("\nNo movies in the collection.\n")
+        return
+    
+    print("\n--- Movie Collection ---")
     for movie in movies:
         print_movie(movie)
 
-#Function to print movie information
+# Function to print single movie
 def print_movie(movie):
-    print(f"title:{movie['title']}")
-    print(f"Director:{movie['Director']}")
-    print(f"Year:{movie['Year']}")
+    print(f"Title    : {movie['title']}")
+    print(f"Director : {movie['director']}")
+    print(f"Year     : {movie['year']}")
+    print("-" * 25)
 
-#Function to find the movie 
+# Function to find a movie
 def find_movie():
-    search_title = input("Please Enter the movie title:")
+    search_title = input("Enter the movie title to search: ").strip()
+
     for movie in movies:
-        if movie['title'] == search_title:
+        if movie['title'].lower() == search_title.lower():
+            print("\nMovie Found:\n")
             print_movie(movie)
+            return
+    
+    print("\nMovie not found.\n")
 
-
+# Menu options dictionary
 user_options = {
     "a": add_movie,
-    "l": show_movie,
+    "l": show_movies,
     "f": find_movie
 }
 
-
+# Main menu function
 def menu():
-    selection = input(menu_prompt)
+    selection = input(menu_prompt).lower().strip()
     while selection != 'q':
         if selection in user_options:
-            selected_function = user_options[selection]
-            selected_function()
+            user_options[selection]()
         else:
-            print('Unknown command. Please try again.')
+            print("\nInvalid option. Please try again.\n")
 
-        selection = input(menu_prompt)
+        selection = input(menu_prompt).lower().strip()
 
+    print("\nGoodbye! Thank you for using Movie Manager.\n")
 
 menu()
