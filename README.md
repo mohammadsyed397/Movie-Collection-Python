@@ -26,8 +26,7 @@ movie_collection/
 Make sure you have Python 3 installed.
 
 Clone this repository:
-git clone https://github.com/
-<your-username>/<your-repo>.git
+git clone https://github.com/mohammadsyed397/Movie-Collection-Python
 
 Navigate into the project folder:
 cd movie_collection
@@ -106,3 +105,4 @@ Feel free to fork this project and submit pull requests.
 📄 License
 
 Free to use for learning and personal projects.
+
