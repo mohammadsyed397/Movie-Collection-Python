@@ -1,4 +1,12 @@
-menu_prompt = "\n Enter a. to add a movie l.to list the movie collection f.to find the movies q. to quit!!!"
+menu_prompt = (
+    "\nPlease choose an option:\n"
+    "  a - Add a movie\n"
+    "  l - List all movies\n"
+    "  f - Find a movie\n"
+    "  q - Quit the program\n"
+    "Your choice: "
+)
+
 
 movies = [] # Empty moive List
 
