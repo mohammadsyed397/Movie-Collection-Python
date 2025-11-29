@@ -1,4 +1,4 @@
-menu_prompt = "\n Enter a. to add a movie l.to list the movie collection f.to find the movies Q. to quit!!!"
+menu_prompt = "\n Enter a. to add a movie l.to list the movie collection f.to find the movies q. to quit!!!"
 
 movies = [] # Empty moive List
 
@@ -20,9 +20,9 @@ def show_movie():
 
 #Function to print movie information
 def print_movie(movie):
-    print(f"title:movie['title']")
-    print(f"Director:movie['Director']")
-    print(f"Year:movie['Year']")
+    print(f"title:{movie['title']}")
+    print(f"Director:{movie['Director']}")
+    print(f"Year:{movie['Year']}")
 
 #Function to find the movie 
 def find_movie():
@@ -32,20 +32,23 @@ def find_movie():
             print_movie(movie)
 
 
+user_options = {
+    "a": add_movie,
+    "l": show_movie,
+    "f": find_movie
+}
+
+
 def menu():
     selection = input(menu_prompt)
     while selection != 'q':
-        if selection == 'a':
-            add_movie()
-        elif selection == 'l':
-            show_movie()
-        elif selection == 'f':
-            find_movie()
+        if selection in user_options:
+            selected_function = user_options[selection]
+            selected_function()
         else:
-            print("Please choose the option from the list below")
+            print('Unknown command. Please try again.')
+
         selection = input(menu_prompt)
+
+
 menu()
-
-
-
-    
