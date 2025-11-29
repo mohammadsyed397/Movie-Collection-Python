@@ -17,8 +17,9 @@ You can **add movies**, **list all movies**, and **search for a movie** using th
 
 ## 📂 Project Structure
 
-├── main.py # Main Python script containing the application logic
-└── README.md # Project documentation
+movie_collection/  
+├── main.py    # Main Python script containing the application logic  
+└── README.md  # Project documentation  
 
 ---
 
@@ -28,4 +29,3 @@ You can **add movies**, **list all movies**, and **search for a movie** using th
 2. Clone this repository:  
 
 git clone https://github.com/mohammadsyed397/Movie-Collection-Python
-
